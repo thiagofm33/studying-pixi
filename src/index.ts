@@ -1,4 +1,8 @@
-import { Application, Sprite } from 'pixi.js'
+import { Application } from 'pixi.js'
+// import MainScene from './scenes/MainScene';
+import AnimatedSpriteScene from './scenes/AnimatedSpriteScene';
+
+// Application
 
 const app = new Application({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
@@ -8,11 +12,11 @@ const app = new Application({
 	height: 480
 });
 
-const clampy: Sprite = Sprite.from("clampy.png");
 
-clampy.anchor.set(0.5);
+// // Basics
+// const mainScene: MainScene = new MainScene(app.screen.width, app.screen.height);
+// app.stage.addChild(mainScene);
 
-clampy.x = app.screen.width / 2;
-clampy.y = app.screen.height / 2;
-
-app.stage.addChild(clampy);
+// Animated Sprites
+const animatedSpriteScene: AnimatedSpriteScene = new AnimatedSpriteScene();
+app.stage.addChild(animatedSpriteScene);
