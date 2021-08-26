@@ -1,6 +1,7 @@
 import { Application } from 'pixi.js'
 // import MainScene from './scenes/MainScene';
-import AnimatedSpriteScene from './scenes/AnimatedSpriteScene';
+// import AnimatedSpriteScene from './scenes/AnimatedSpriteScene';
+import TickerScene from './scenes/TickerScene';
 
 // Application
 
@@ -17,6 +18,10 @@ const app = new Application({
 // const mainScene: MainScene = new MainScene(app.screen.width, app.screen.height);
 // app.stage.addChild(mainScene);
 
-// Animated Sprites
-const animatedSpriteScene: AnimatedSpriteScene = new AnimatedSpriteScene();
-app.stage.addChild(animatedSpriteScene);
+// // Animated Sprites
+// const animatedSpriteScene: AnimatedSpriteScene = new AnimatedSpriteScene();
+// app.stage.addChild(animatedSpriteScene);
+
+// Ticker
+const tickerScene: TickerScene = new TickerScene(app.screen.width, app.screen.height);
+app.stage.addChild(tickerScene);

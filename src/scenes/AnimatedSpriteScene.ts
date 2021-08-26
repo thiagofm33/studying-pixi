@@ -17,7 +17,7 @@ class AnimatedSpriteScene extends Container {
     animatedSprite.play();
 
     this.addChild(animatedSprite);
-    
+
     animatedSprite.onFrameChange = this.onClampyFrameChange.bind(this);
   }
 
