@@ -6,7 +6,8 @@ import { Application } from 'pixi.js'
 // import MouseInputScene from './scenes/MouseInputScene';
 // import KeyboardInputScene from './scenes/KeyboardInputScene';
 // import CustomEventScene from './scenes/CustomEventScene';
-import CollisionScene from './scenes/CollisionScene';
+// import CollisionScene from './scenes/CollisionScene';
+import SoundScene from './scenes/SoundScene';
 
 // Application
 
@@ -48,5 +49,5 @@ const app = new Application({
 // app.stage.addChild(scene);
 
 // Collision
-const scene: CollisionScene = new CollisionScene();
+const scene: SoundScene = new SoundScene();
 app.stage.addChild(scene);
