@@ -1,30 +1,39 @@
-import {
-  Container, Sprite, Ticker
-} from "pixi.js";
+import { Container, InteractionEvent, Loader, Sprite, Ticker } from "pixi.js";
+import { Sound } from "@pixi/sound";
+import { IScene, Manager } from "../Manager";
 
-class TickerScene extends Container {
+class TickerScene extends Container implements IScene {
   private readonly screenWidth: number;
   private readonly screenHeight: number;
 
   private clampy: Sprite;
   private clampyVelocity: number = 30;
-  constructor(screenWidth: number, screenHeight: number) {
+  private sound: Sound;
+
+  constructor() {
     super();
 
-    this.screenWidth = screenWidth;
-    this.screenHeight = screenHeight;
+    this.screenWidth = Manager.width;
+    this.screenHeight = Manager.height;
 
-    this.clampy = Sprite.from('clampy.png');
+    this.sound = Sound.from(Loader.shared.resources['the_sound']);
+    this.sound.volume = 0.7;
+
+    this.clampy = Sprite.from('the_clampy');
 
     this.clampy.anchor.set(0, 0.5);
     this.clampy.x = 0;
     this.clampy.y = this.screenHeight / 2;
+    this.clampy.on('pointertap', this.onMySpriteClick, this);
+    this.clampy.interactive = true;
     this.addChild(this.clampy);
-
-    Ticker.shared.add(this.update, this);
   }
 
-  private update(deltaTime: number): void {
+  private onMySpriteClick(e: InteractionEvent): void {
+    this.sound.play();
+  }
+
+  public update(deltaTime: number): void {
     this.clampy.x = this.clampy.x + (this.clampyVelocity * deltaTime);
 
     if (this.clampy.x > this.screenWidth)

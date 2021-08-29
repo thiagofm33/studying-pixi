@@ -1,7 +1,8 @@
 import { Container } from "pixi.js";
 import { Sound } from '@pixi/sound';
+import { IScene } from '../Manager';
 
-class MouseInputScene extends Container {
+class MouseInputScene extends Container implements IScene {
 
   private starSound: Sound;
 
@@ -20,6 +21,7 @@ class MouseInputScene extends Container {
     this.starSound.play();
   }
 
+  public update(_: number) { }
 }
 
 export default MouseInputScene;
